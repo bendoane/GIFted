@@ -6,9 +6,26 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+  <body>
+    <div>
+      <% if current_user%>
+        <div id = "nav_left">
+          <%= link_to "Edit Profile", edit_user_path(current_user.id)%>
+        </div>
+        <div id="nav_right">
+          <%= link_to "Logout", :logout%>
+        </div>
+      <%else%>
+        <div id ="nav_left">
+          <%= link_to "Sign up!", new_user_path%>
+        </div>
+        <div id ="nav_right">
+          <%= link_to "Login", :login%>
+        </div>
+        <%end%>
+    </div>
 
-<%= yield %>
+  <%= yield %>
 
-</body>
+  </body>
 </html>
