@@ -5,22 +5,15 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user_session = UserSession.new(params[:user_session])
   end
 
   def create
     @user = User.new(user_params)
-    respond_to do |format|
-      if @user.save
-        format.html {redirect_to(:users, :notice => "Success!")}
-        format.xml {render :xml => @user, :status => :created, :location => @user}
-      else
-        format.html {render :action => "new"}
-        format.xml {render :xml => @user.errors, :status => :unprocessable_entity}
-      end
-    end
+    @user.save!
   end
 
-  def update
+  def edit
     @user = User.find(params[:id])
   end
 

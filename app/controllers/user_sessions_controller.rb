@@ -1,29 +1,14 @@
 class UserSessionsController < ApplicationController
-
-  def index
-
-  end
+  before_action :require_no_user, only: [:new, :create]
+  before_action :require_user, only: [:destroy]
 
   def new
     @user_session = UserSession.new
-    respond_to do |format|
-      format.html
-      format.xml {render :xml => @user_session}
     end
-  end
 
   def create
     @user_session = UserSession.new(params[:user_session])
-
-    respond_to do |format|
-      if @user_session.save
-        format.html { redirect_to @user_session, notice: "Welcome" }
-        format.json { render :xml => @user_session, :status => :created, :location => @user_session}
-      else
-        format.html { render :action => "new" }
-        format.json { render :xml => @user_session. errors, :status => :unprocessable_entity}
-      end
-    end
+    @user_session.save
   end
 
   def destroy
