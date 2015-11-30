@@ -3,6 +3,7 @@ class GifsController < ApplicationController
 def index
   @gifs = Gif.all
   @gif = Gif.new
+  @user_session = UserSession.new
 end
 
 def show
