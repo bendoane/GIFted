@@ -16,7 +16,7 @@ end
 1.times do
   base = Gif.new
   base.url = "http://i.giphy.com/5Y2bU7FqLOuzK.gif"
-  base.title = "Icon"
+  base.title = "Hooray GIFts!"
   base.save
 end
 

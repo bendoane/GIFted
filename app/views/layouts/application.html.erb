@@ -5,6 +5,9 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <% if current_user%>
+    <h5 class = "header">Welcome, <%=@current_user.username%>!</h5>
+  <%end%>
 </head>
   <body>
 
@@ -15,22 +18,26 @@
           <div id = "nav_left">
             <%= link_to "Edit Profile", edit_user_path(current_user.id), :class => "btn btn-primary btn-sm"%>
           </div>
+
           <div id="nav_right">
-            <%= link_to "Logout", :logout, :class => "btn btn-primary btn-sm"%>
+            <%= link_to "Logout", logout_path, :class => "btn btn-primary btn-sm"%>
             <br>
             <br>
             <a data-toggle="modal" href="#new-gif-modal" class="btn btn-primary btn-sm">Submit a GIFt</a>
           </div>
+
+
         <%else%>
           <div id ="nav_left">
             <%= link_to "Sign up!", new_user_path, class: "btn btn-primary btn-sm"%>
           </div>
           <div id ="nav_right">
+
             <%= link_to "Login", :login, class: "btn btn-primary btn-sm"%>
           </div>
           <%end%>
         <div class = "title">
-          <a href=<%=root_url%>><h1>GIFt</h1></a>
+          <a href=<%=root_url%>>GIFt</a>
         </div>
         <div class = "subtitle">
           <h5>Helping you find the perfect GIFt for a friend since 2015</h5>
@@ -39,7 +46,9 @@
       </div>
     </div>
 
+
     <!-- Modal -->
+  <%if params[:controller]=="gifs"%>
   <div class="modal fade" id="new-gif-modal" tabindex="-1" role="dialog" aria-labelledby="GifLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -56,6 +65,7 @@
       </div>
     </div>
   </div>
+  <%end%>
 
   <%= yield %>
 
