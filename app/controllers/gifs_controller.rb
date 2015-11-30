@@ -2,6 +2,7 @@ class GifsController < ApplicationController
 
 def index
   @gifs = Gif.all
+  @gif = Gif.new
 end
 
 def show
@@ -14,7 +15,14 @@ end
 
 def create
   @gif = Gif.new(gif_params)
-  @gif.save!
+  if @gif.save
+    respond_to do |format|
+      format.html {redirect_to root_url}
+      format.js{}
+    end
+  else
+    render "new"
+  end
 end
 
 private
