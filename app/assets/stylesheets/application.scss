@@ -10,9 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
- */
+
+*/
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
 * {
   margin: 0;
   text-decoration: none;
@@ -20,26 +22,22 @@
   font-family: Verdana;
 }
 
+.jumbotron{
+width: 100%;
+
+}
+
+
 #nav_left{
   text-decoration: none;
   text-align: center;
   float: left;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #cc0;
-  border: 2px solid black;
-  border-radius: 10px;
 }
 
 #nav_right{
   text-decoration: none;
   text-align: center;
   float: right;
-  padding-right: 10px;
-  padding-left: 10px;
-  background-color: #cc0;
-  border: 2px solid black;
-  border-radius: 10px;
 }
 
 .title{
@@ -51,9 +49,18 @@
   margin: none;
 }
 
+//doesn't seem to be working below
 .title:hover{
-  color: #c0c0c0
+  color: #c0c0c0;
+  text-decoration: none;
 }
+
+.subtitle{
+  text-align: center;
+  font-style: oblique;
+  font-size: 18px;
+}
+
 
 .page-name{
   text-align: center;

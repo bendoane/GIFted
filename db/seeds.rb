@@ -6,8 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-4.times do
+1.times do
+base = Gif.new
+base.url = "http://i.giphy.com/drKUWHwhWXIFW.gif"
+base.title = "Icon"
+base.save
+end
+
+8.times do
 base = Gif.new
 base.url = "http://i.giphy.com/xTiTnd3K6Ic28zkPcY.gif"
+base.title = "A GIFt"
 base.save
 end

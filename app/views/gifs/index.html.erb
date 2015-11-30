@@ -1,9 +1,8 @@
-<div class = "subtitle">
-  <h5>Helping you find the perfect GIFt for a friend since 2015</h5>
+<div class = "row">
+  <% @gifs.reverse.each do |g|%>
+    <div class = "col-xs-3">
+      <%=g.title%>
+      <%=link_to(image_tag(g.url, class: "img-responsive"), gif_path(g.id))%>
+    </div>
+  <%end%>
 </div>
-
-<% @gifs.each do |g|%>
-  <div class="gifs">
-    <%=image_tag(g.url)%>
-  </div>
-<%end%>
