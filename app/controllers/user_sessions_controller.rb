@@ -8,12 +8,14 @@ class UserSessionsController < ApplicationController
 
   def create
     @user_session = UserSession.new(params[:user_session])
-    @user_session.save!
+    @user_session.save
+    redirect_to root_url 
   end
 
   def destroy
     @user_session = UserSession.find
     @user_session.destroy
+    redirect_to root_url
   end
 
   private

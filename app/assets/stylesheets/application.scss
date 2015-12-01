@@ -22,8 +22,16 @@
   font-family: Verdana;
 }
 
+.header{
+  text-align: center;
+  background-color: #c0c0c0;
+  margin:0;
+}
+
 .jumbotron{
 width: 100%;
+margin: 0;
+padding: 25px 0px 0px 0px;
 
 }
 
@@ -38,19 +46,25 @@ width: 100%;
   text-decoration: none;
   text-align: center;
   float: right;
+  display:inline-block;
+}
+.title{
+  align-items: center;
 }
 
-.title{
+.title a{
   text-decoration: none;
-  font-family: Verdana;
   text-align: center;
-  font-size: 50px;
-  font-style: italic;
-  margin: none;
+  font-size: 100px;
+  color:#fc0;
+  width: auto;
+  height:auto;
+  align-items: center;
+  display:inline-block;
 }
 
 //doesn't seem to be working below
-.title:hover{
+.title:hover a{
   color: #c0c0c0;
   text-decoration: none;
 }
@@ -59,9 +73,19 @@ width: 100%;
   text-align: center;
   font-style: oblique;
   font-size: 18px;
+  margin: 0;
 }
 
 
 .page-name{
   text-align: center;
+}
+
+.new_user_session{
+  margin-left: 15px;
+  padding-left: 15px;
+}
+.new_gif{
+  margin-left: 15px;
+  padding-left: 15px;
 }
