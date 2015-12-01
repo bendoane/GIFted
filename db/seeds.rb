@@ -8,8 +8,8 @@
 
 1.times do
   base = Gif.new
-  base.url = "http://i.giphy.com/drKUWHwhWXIFW.gif"
-  base.title = "Icon"
+  base.url = "http://i.giphy.com/K8WJPpQlRLFrq.gif"
+  base.title = "Simon Cat's GIFt"
   base.save
 end
 
@@ -44,6 +44,20 @@ end
 1.times do
   base = Gif.new
   base.url = "http://i.giphy.com/3o85xH5M3w84dA3MIg.gif"
-  base.title = "Hiding and Waiting"
+  base.title = "Hiding and Waiting GIFt"
+  base.save
+end
+
+1.times do
+  base = Gif.new
+  base.url = "http://i.giphy.com/kKo2x2QSWMNfW.gif"
+  base.title = "GIFt Baby"
+  base.save
+end
+
+1.times do
+  base = Gif.new
+  base.url = "http://i.giphy.com/xTiTnxAkvsKmQHZQTm.gif"
+  base.title = "SK8 GIFt"
   base.save
 end

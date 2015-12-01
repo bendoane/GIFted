@@ -2,7 +2,8 @@
   <% @gifs.reverse.each do |g|%>
     <div class = "col-xs-3">
       <%=g.title%>
-      <%=link_to(image_tag(g.url, class: "img-responsive"), gif_path(g.id))%>
+      <%=link_to(image_tag(g.url, class: "img-responsive"), "#selected-modal", "data-toggle" => "modal", "data-target" => "#selected-modal-#{g.id}")%>
+      <%=render partial: "selected", locals: {g: g}%>
     </div>
   <%end%>
 </div>

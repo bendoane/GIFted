@@ -30,8 +30,10 @@
 
 .jumbotron{
 width: 100%;
-margin: 0;
-padding: 25px 0px 0px 0px;
+margin: 10;
+padding: 10px 0px 0px 0px;
+background-color: #0066ff;
+border: 5px solid black;
 
 }
 
@@ -70,10 +72,11 @@ padding: 25px 0px 0px 0px;
 }
 
 .subtitle{
-  text-align: center;
+  text-align: left;
   font-style: oblique;
   font-size: 18px;
   margin: 0;
+  color: #fc0;
 }
 
 
@@ -88,4 +91,10 @@ padding: 25px 0px 0px 0px;
 .new_gif{
   margin-left: 15px;
   padding-left: 15px;
+}
+.row{
+  padding: 0px 15px 0px 15px;
+}
+.col-xs-3{
+  text-align: center;
 }
