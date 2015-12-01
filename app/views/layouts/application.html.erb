@@ -6,9 +6,83 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+  <body>
 
-<%= yield %>
+    <div class = "jumbotron">
+      <div class="container">
 
-</body>
+        <% if current_user%>
+          <div id = "nav_left">
+          </div>
+          <div id="nav_right">
+            <a data-toggle="modal" href="#new-gif-modal" class="btn btn-warning btn-sm">Submit a GIFt</a>
+            <%= link_to "Logout", logout_path, :class => "btn btn-primary btn-sm"%>
+            <div class="subtitle">
+              <h5>Welcome, <%=@current_user.username%>!</h5>
+            </div>
+          </div>
+
+
+        <%else%>
+          <div id ="nav_left">
+          </div>
+          <div id ="nav_right">
+            <%= link_to "Sign up!", new_user_path, class: "btn btn-primary btn-sm"%>
+            <%= link_to "Login", "#login-modal", class: "btn btn-primary btn-sm", "data-toggle" => "modal", "data-target" => "#login-modal"%>
+          </div>
+          <%end%>
+
+        <div class = "title">
+          <a href=<%=root_url%>><img src="http://i.giphy.com/drKUWHwhWXIFW.gif" width="240px"></a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- New-Gif Modal -->
+  <%if params[:controller]=="gifs"%>
+  <div class="modal fade" id="new-gif-modal" tabindex="-1" role="dialog" aria-labelledby="GifLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="gif-title" id="GifLabel">Submit a GIFt!</h4>
+        </div>
+        <div class="modal-body">
+          <%= render "gifs/submittal_form" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%end%>
+
+    <!-- User Log-in Modal -->
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="LoginLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="login-title" id="LoginLabel">Login</h4>
+        </div>
+        <div class="modal-body">
+          <%= render "user_sessions/form" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <%= yield %>
+
+
+
+  </body>
 </html>

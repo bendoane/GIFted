@@ -1,0 +1,35 @@
+<%= form_for(@user) do |f|%>
+  <% if @user.errors.any? %>
+    <div id="error_message">
+      <h2><%= pluralize(@user.errors.count,"error")%> made this unable to save:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |m|%>
+          <li><%= m %></li>
+        <%end%>
+      </ul>
+    </div>
+    <%end%>
+
+    <div class="field">
+        <%= f.label :username%>
+        <%= f.text_field :username%>
+    </div>
+    <br>
+    <div class="field">
+        <%= f.label :email%>
+        <%= f.text_field :email%>
+    </div>
+    <br>
+    <div class="field">
+        <%= f.label :password%>
+        <%= f.password_field :password%>
+    </div>
+    <br>
+    <div class="field">
+        <%= f.label :password_confirmation%>
+        <%= f.password_field :password_confirmation%>
+    </div>
+    <br>
+    <%= f.submit%>
+
+<%end%>

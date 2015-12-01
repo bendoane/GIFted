@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  resources :users, :gifs, :user_sessions
+  match 'login' => 'user_sessions#new',via: [:get, :post], :as => :login
+  match 'logout' => 'user_sessions#destroy',via: [:get, :post], :as => :logout
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'gifs#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
