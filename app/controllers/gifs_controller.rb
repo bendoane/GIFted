@@ -4,7 +4,6 @@ def index
   @gifs = Gif.all
   @gif = Gif.new
   @user_session = UserSession.new
-  @selected = Gif.find(params[:id])
 end
 
 def show

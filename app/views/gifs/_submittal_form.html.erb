@@ -1,9 +1,9 @@
-<%= form_for(@gif) do |g|%>
-  <% if @gif.errors.any? %>
+<%= form_for(@selected) do |g|%>
+  <% if @selected.errors.any? %>
     <div id="error_message">
-      <h2><%= pluralize(@gif.errors.count,"error")%> made this unable to save:</h2>
+      <h2><%= pluralize(@selected.errors.count,"error")%> made this unable to save:</h2>
       <ul>
-        <% @gif.errors.full_messages.each do |m|%>
+        <% @selected.errors.full_messages.each do |m|%>
           <li><%= m %></li>
         <%end%>
       </ul>
