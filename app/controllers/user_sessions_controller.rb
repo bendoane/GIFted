@@ -7,9 +7,9 @@ class UserSessionsController < ApplicationController
     end
 
   def create
-    @user_session = UserSession.new(params[:user_session])
+    @user_session = UserSession.new(user_session_params)
     @user_session.save
-    redirect_to root_url 
+    redirect_to root_url
   end
 
   def destroy

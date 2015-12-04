@@ -35,6 +35,13 @@
         <div class = "title">
           <a href=<%=root_url%>><img src="http://i.giphy.com/drKUWHwhWXIFW.gif" width="240px"></a>
         </div>
+
+      <% if flash[:notice] %>
+        <div class = "container">
+          <h2><%= flash[:notice] %></h2>
+        </div>
+      <%end%>
+
       </div>
     </div>
 
