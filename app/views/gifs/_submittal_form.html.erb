@@ -1,25 +1,36 @@
-<%= form_for(@gif, remote: true) do |g|%>
-  <% if @gif.errors.any? %>
-    <div id="error_message">
-      <h2><%= pluralize(@gif.errors.count,"error")%> made this unable to save:</h2>
-      <ul>
-        <% @gif.errors.full_messages.each do |m|%>
-          <li><%= m %></li>
-        <%end%>
-      </ul>
-    </div>
-    <%end%>
 
-    <div class="field">
-        <%= g.label :title%>
-        <%= g.text_field :title%>
-    </div>
-    <br>
-    <div class="field">
-        <%= g.label :url%>
-        <%= g.text_field :url%>
-    </div>
-    <br>
-    <%= g.submit%>
 
-<%end%>
+<!-- gif Modal -->
+<div class="modal fade" id="new-gif-modal" tabindex="-1" role="dialog" aria-labelledby="GifLabel">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="gif-title" id="GifLabel">New Gif</h4>
+    </div>
+
+    <div class="modal-body">
+      <%= form_for(@gif, remote: true) do |g|%>
+        <% if @gif.errors.any? %>
+          <div id="error_message">
+            <h2><%= pluralize(@gif.errors.count,"error")%> made this unable to save:</h2>
+            <ul>
+              <% @gif.errors.full_messages.each do |m|%>
+                <li><%= m %></li>
+              <%end%>
+            </ul>
+          </div>
+          <%end%>
+          <%= g.label :title%>
+          <%= g.text_field :title%>
+      <br>
+          <%= g.label :url%>
+          <%= g.text_field :url%>
+      <br>
+      <%= g.submit%>
+      <%end%>
+    </div>
+
+  </div>
+</div>
+</div>
