@@ -4,6 +4,10 @@ def index
   @gifs = Gif.all
   @gif = Gif.new
   @user_session = UserSession.new
+    respond_to do |format|
+      format.html {}
+      format.js{ render :json =>@gifs.to_json}
+    end
 end
 
 def show
@@ -12,10 +16,12 @@ end
 
 def new
   @gif = Gif.new
+  @gif.author = current_user
 end
 
 def create
   @gif = Gif.new(gif_params)
+  @gif.author = current_user.username
   if @gif.save
     respond_to do |format|
       format.html {redirect_to root_url}

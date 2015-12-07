@@ -1,4 +1,4 @@
-<%= form_for(@gif) do |g|%>
+<%= form_for(@gif, remote: true) do |g|%>
   <% if @gif.errors.any? %>
     <div id="error_message">
       <h2><%= pluralize(@gif.errors.count,"error")%> made this unable to save:</h2>

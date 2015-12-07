@@ -12,6 +12,9 @@
         <h5><%=g.url%></h5>
       <br>
       <%=image_tag(g.url)%>
+      <br>
+      <h5>Uploaded by: <%=g.author%></h5>
+      <h5>Submitted at: <%=g.created_at.strftime("%l:%M%p %m/%d/%Y")%></h5>
     </div>
 
     <div class="modal-footer">
