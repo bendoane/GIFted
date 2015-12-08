@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @gif = Gif.new
     @user_session = UserSession.new(params[:user_session])
   end
 
