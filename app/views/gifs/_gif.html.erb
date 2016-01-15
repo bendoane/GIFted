@@ -1,5 +1,3 @@
-<div class = "col-xs-3">
-    <%=gif.title%>
-    <%=link_to(image_tag(gif.url, class: "img-responsive"), "#selected-modal", "data-toggle" => "modal", "data-target" => "#selected-modal-#{gif.id}")%>
-    <%=render partial: "selected", locals: {g: gif}%>
-  </div>
+<%=gif.title%>
+<%=link_to(image_tag(gif.url, class: "img-responsive"), "#selected-modal", "data-toggle" => "modal", "data-target" => "#selected-modal-#{gif.id}")%>
+<%=render partial: "selected", locals: {g: gif}%>
