@@ -1,7 +1,7 @@
 class GifsController < ApplicationController
 
 def index
-  @gifs = Gif.all
+  @gifs = Gif.all.reverse
   @gif = Gif.new
   @user_session = UserSession.new
     respond_to do |format|
