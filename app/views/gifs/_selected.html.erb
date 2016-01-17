@@ -8,13 +8,16 @@
     </div>
 
     <div class="modal-body">
-        <h3>Url:</h3>
-        <h5><%=g.url%></h5>
+        <%=image_tag(g.url, class: "gif-in-modal")%>
       <br>
-      <%=image_tag(g.url)%>
-      <br>
-      <h5>Uploaded by: <%=g.author%></h5>
-      <h5>Submitted at: <%=g.created_at.strftime("%l:%M%p %m/%d/%Y")%></h5>
+      <h4><%=g.url%></h4>
+      <div class="gif-selected-details">
+        <%if g.author%>
+          Uploaded by: <%=g.author%>
+        <%end%>
+        <br>
+        Submitted at: <%=g.created_at.strftime("%l:%M %p on %m/%d/%Y")%>
+      </div>
     </div>
 
     <div class="modal-footer">
