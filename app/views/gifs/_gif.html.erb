@@ -1,3 +1,7 @@
-<%=gif.title%>
-<%=link_to(image_tag(gif.url, class: "img-responsive"), "#selected-modal", "data-toggle" => "modal", "data-target" => "#selected-modal-#{gif.id}")%>
-<%=render partial: "selected", locals: {g: gif}%>
+<div class="gif-panel">
+  <div class="gif-title">
+    <%=gif.title%>
+    <%=link_to(image_tag(gif.url, class: " gif-image img-responsive"), "#selected-modal", "data-toggle" => "modal", "data-target" => "#selected-modal-#{gif.id}")%>
+    <%=render partial: "selected", locals: {g: gif}%>
+  </div>
+</div>

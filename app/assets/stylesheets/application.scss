@@ -15,35 +15,31 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+// OVERALL -----------------
 * {
   margin: 0;
   text-decoration: none;
   color: black;
-  font-family: Verdana;
+  font-family: Comfortaa;
 }
-
 .header{
   text-align: center;
   background-color: #c0c0c0;
   margin:0;
 }
-
 .jumbotron{
 width: 100%;
 margin: 10;
 padding: 10px 0px 0px 0px;
 background-color: #0066ff;
 border: 5px solid black;
-
 }
-
-
+// NAV BAR ------------------
 #nav_left{
   text-decoration: none;
   text-align: center;
   float: left;
 }
-
 #nav_right{
   text-decoration: none;
   text-align: center;
@@ -53,7 +49,6 @@ border: 5px solid black;
 .title{
   align-items: center;
 }
-
 .title a{
   text-decoration: none;
   text-align: center;
@@ -97,4 +92,24 @@ border: 5px solid black;
 }
 .col-xs-3{
   text-align: center;
+}
+// GIF Specific ----------------------------------
+.gif-panel{
+  border: 1px gray;
+}
+.gif-title{
+  font-size: 18px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: #cce0ff;
+}
+.gif-image{
+  border-radius: 5px;
+}
+// GID Modal ------------------------------------
+.gif-selected-details{
+  font-size: 10px;
+}
+.gif-in-modal{
+  max-width: 300px;
 }
