@@ -10,48 +10,56 @@
   <!--/GOOGLE FONTS-->
 </head>
   <body>
-
+    <!--PAGE HEADING-->
     <div class = "jumbotron">
       <div class="container">
-        <!--NAV BAR -->
-        <% if current_user%>
-          <div id = "nav_left">
-          </div>
-          <div id="nav_right">
-            <a data-toggle="modal" href="#new-gif-modal" data-target="#new-gif-modal" class="btn btn-warning btn-sm">Submit a GIFt</a>
-            <%= link_to "Logout", logout_path, :class => "btn btn-primary btn-sm"%>
-            <div class="subtitle">
-              <h5>Welcome, <%=@current_user.username%>!</h5>
+        <div="page-heading">
+          <!--NAV BAR -->
+            <% if current_user%>
+              <div id = "nav_left">
+              </div>
+              <div id="nav_right">
+                <a data-toggle="modal" href="#new-gif-modal" data-target="#new-gif-modal" class="btn btn-warning btn-md">Submit a GIFt</a>
+                <%= link_to "Logout", logout_path, :class => "btn btn-primary btn-md"%>
+                <div class="subtitle">
+                  <h5>Logged in as <%=@current_user.username%></h5>
+                </div>
+              </div>
+            <%else%>
+              <div id ="nav_left">
+              </div>
+              <div id ="nav_right">
+                <%= link_to "Sign up!", new_user_path, class: "btn btn-primary btn-md"%>
+                <%= link_to "Login", "#login-modal", class: "btn btn-primary btn-md", "data-toggle" => "modal", "data-target" => "#login-modal"%>
+              </div>
+              <%end%>
+              <!--/NAVBAR -->
+
+            <!--GIF LOGO-->
+            <div class = "title-gif">
+              <img src="http://i.giphy.com/drKUWHwhWXIFW.gif" class="title-gif-inside">
             </div>
-          </div>
-
-        <%else%>
-          <div id ="nav_left">
-          </div>
-          <div id ="nav_right">
-            <%= link_to "Sign up!", new_user_path, class: "btn btn-primary btn-sm"%>
-            <%= link_to "Login", "#login-modal", class: "btn btn-primary btn-sm", "data-toggle" => "modal", "data-target" => "#login-modal"%>
-          </div>
+            <!--/GIF LOGO-->
+            <!--HOME BUTTON  -->
+            <%unless current_page?(root_url)%>
+              <%= link_to "Home", root_url, class: "btn btn-primary btn-sm"%>
+              <%end%>
+            <!--/HOME BUTTON  -->
+            <!--NOTICES -->
+          <% if flash[:notice] %>
+            <div class = "container">
+              <h2><%= flash[:notice] %></h2>
+            </div>
           <%end%>
-          <!--/NAVBAR -->
-
-        <div class = "title">
-          <a href=<%=root_url%>><img src="http://i.giphy.com/drKUWHwhWXIFW.gif" width="240px"></a>
-        </div>
-
-      <% if flash[:notice] %>
-        <div class = "container">
-          <h2><%= flash[:notice] %></h2>
-        </div>
-      <%end%>
-
+          <!--/NOTICES -->
+        </div class="page-heading">
       </div>
     </div>
 
 
 
 
-    <!-- User Log-in Modal -->
+  <!-- User Log-in Modal -->
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="LoginLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -68,6 +76,7 @@
       </div>
     </div>
   </div>
+  <!--/USER LOG-IN MODAL  -->
 
   <%= render "gifs/submittal_form" %>
 
@@ -79,4 +88,9 @@
 
 
   </body>
+  <footer>
+    <nav class="navbar-default navbar-fixed-bottom" id="footer">
+      A Giffy Clone by <a href="https://www.linkedin.com/in/ben-doane-b9040348">Ben Doane</a>
+    </nav>
+  </footer>
 </html>
