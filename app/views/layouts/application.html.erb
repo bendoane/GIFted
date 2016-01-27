@@ -40,7 +40,11 @@
               <img src="http://i.giphy.com/drKUWHwhWXIFW.gif" class="title-gif-inside">
             </div>
             <!--/GIF LOGO-->
-
+            <!--HOME BUTTON  -->
+            <%unless current_page?(root_url)%>
+              <%= link_to "Home", root_url, class: "btn btn-primary btn-sm"%>
+              <%end%>
+            <!--/HOME BUTTON  -->
             <!--NOTICES -->
           <% if flash[:notice] %>
             <div class = "container">
@@ -84,4 +88,9 @@
 
 
   </body>
+  <footer>
+    <nav class="navbar-default navbar-fixed-bottom" id="footer">
+      A Giffy Clone by <a href="https://www.linkedin.com/in/ben-doane-b9040348">Ben Doane</a>
+    </nav>
+  </footer>
 </html>
